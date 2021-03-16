@@ -1,5 +1,4 @@
 import React from 'react';
-import { FiAlertCircle } from 'react-icons/fi';
 import { Container } from './styles';
 
 interface TooltipProps {
@@ -10,7 +9,7 @@ interface TooltipProps {
 const Tooltip: React.FC<TooltipProps> = ({ title, className, children }) => {
   return (
     <Container className={className}>
-      <FiAlertCircle color="#c53030" size={20} />
+      {children}
       <span>{title}</span>
     </Container>
   );
