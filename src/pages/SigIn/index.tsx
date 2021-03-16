@@ -2,8 +2,8 @@ import React from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import logoImg from '../../assets/logo.svg';
 import { Background, Container, Content } from './styles';
-import Input from '../../components/input';
-import Button from '../../components/button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 const SignIn: React.FC = () => (
   <Container>
