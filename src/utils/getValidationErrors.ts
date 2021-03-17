@@ -8,6 +8,7 @@ export default function getValidationErrors(err: ValidationError): Errors {
   const validationErrors: Errors = {};
 
   err.inner.forEach(error => {
+    // eslint-disable-next-line
     validationErrors[error.path!] = error.message;
   });
 
