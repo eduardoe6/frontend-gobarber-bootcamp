@@ -30,22 +30,23 @@ const Toast: React.FC<ToastProps> = ({ message, style }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [message.id, removeToast]);
+  }, [removeToast, message.id]);
 
   return (
     <Container
+      key={message.id}
       type={message.type}
-      hasDescription={!!message.description}
+      hasdescription={!!message.description}
       style={style}
     >
       {icons[message.type || 'info']}
       <div>
         <strong>{message.title}</strong>
-        {message.description && <p> {message.description}</p>}
-        <button type="button" onClick={() => removeToast(message.id)}>
-          <FiXCircle size={18} />
-        </button>
+        <p>{message.description && message.description}</p>
       </div>
+      <button onClick={() => removeToast(message.id)} type="button">
+        <FiXCircle size={18} />
+      </button>
     </Container>
   );
 };
