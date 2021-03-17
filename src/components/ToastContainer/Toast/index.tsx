@@ -15,8 +15,8 @@ interface ToastProps {
 
 const icons = {
   info: <FiInfo size={24} />,
-  error: <FiAlertCircle size={24} />,
   success: <FiCheckCircle size={24} />,
+  error: <FiAlertCircle size={24} />,
 };
 
 const Toast: React.FC<ToastProps> = ({ message, style }) => {
@@ -30,19 +30,18 @@ const Toast: React.FC<ToastProps> = ({ message, style }) => {
     return () => {
       clearTimeout(timer);
     };
-  }, [removeToast, message.id]);
+  }, [message.id, removeToast]);
 
   return (
     <Container
-      key={message.id}
       type={message.type}
-      hasdescription={!!message.description}
+      hasDescription={Number(!!message.description)}
       style={style}
     >
       {icons[message.type || 'info']}
       <div>
         <strong>{message.title}</strong>
-        <p>{message.description && message.description}</p>
+        {message.description && <p>{message.description}</p>}
       </div>
       <button onClick={() => removeToast(message.id)} type="button">
         <FiXCircle size={18} />
